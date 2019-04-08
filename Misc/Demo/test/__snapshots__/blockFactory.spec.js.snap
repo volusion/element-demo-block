@@ -33,7 +33,7 @@ exports[`The ElementDemoBlock when rendered with createFactory should match the 
   <div
     className="propsColor"
   >
-    I get my color from "props.isColor"
+    I get my color from "props.textColor"
   </div>
   <div
     dangerouslySetInnerHTML={

@@ -29,7 +29,7 @@ exports[`The ElementDemoBlock block should match the shallow snapshot 1`] = `
   <div
     className="MOCK_CLASS_propsColor"
   >
-    I get my color from "props.isColor"
+    I get my color from "props.textColor"
   </div>
   <div
     dangerouslySetInnerHTML={

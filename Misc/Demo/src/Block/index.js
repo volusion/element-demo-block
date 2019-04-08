@@ -27,7 +27,7 @@ function ElementDemoBlockFactory(React) {
                 <OptionDetails selection={option} />
                 <img src={imageUrl} alt="Demo picture element" />
                 <div className={css(classes.propsColor)}>
-                    I get my color from "props.isColor"
+                    I get my color from "props.textColor"
                 </div>
                 <div dangerouslySetInnerHTML={createMarkup(htmlString)} />
             </div>
