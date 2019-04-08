@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The ElementDemoBlock block should match the shallow snapshot 1`] = `
+<div
+  className="pa3"
+>
+  <h1>
+    I am heading text
+  </h1>
+  <ul>
+    <li
+      key="0"
+    >
+      I am the first item in the list.
+    </li>
+    <li
+      key="1"
+    >
+      I am the second item in the list.
+    </li>
+  </ul>
+  <OptionDetails
+    selection="Option 1"
+  />
+  <img
+    alt="Demo picture element"
+    src="https://res.cloudinary.com/dyx4yhvoq/image/upload/h_350,w_350,c_pad/v1461691251/571a44b587179d0930f2c7d8/r1qpfyry8fz35evain24.jpg"
+  />
+  <div
+    className="MOCK_CLASS_propsColor"
+  >
+    I get my color from "props.isColor"
+  </div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<p>I am a paragraph in an HTML string.</p>",
+      }
+    }
+  />
+</div>
+`;

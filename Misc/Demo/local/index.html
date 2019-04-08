@@ -1,0 +1,99 @@
+<html lang="en-US">
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Local Dev: ElementDemoBlock</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"
+        />
+        <script
+            crossorigin
+            src="https://unpkg.com/react@16/umd/react.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+        ></script>
+        <script
+            crossorigin
+            src="https://unpkg.com/aphrodite@2.2.1/dist/aphrodite.umd.min.js"
+        ></script>
+        <script src="https://sdk.v2-prod.volusion.com/element-sdk.umd.js"></script>
+        <script src="component.umd.js"></script>
+    </head>
+
+    <body>
+        <div id="root"></div>
+    </body>
+    <script>
+        var blockConfig = {
+            color: {
+                background: "#fff",
+                link: "#777",
+                primary: "#333",
+                text: "#333"
+            },
+            globalComponents: {},
+            typography: {
+                headingFontFamily:
+                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+                headingWeight: 700
+            },
+            props: {
+                header: {
+                    show: true,
+                    text: "I am heading text"
+                },
+                listItems: [
+                    {
+                        content: "I am the first item in the list."
+                    },
+                    {
+                        content: "I am the second item in the list."
+                    }
+                ],
+                option: "Option 1",
+                imageUrl:
+                    "https://res.cloudinary.com/dyx4yhvoq/image/upload/h_350,w_350,c_pad/v1461691251/571a44b587179d0930f2c7d8/r1qpfyry8fz35evain24.jpg",
+                textColor: "#FF0000",
+                htmlString: `<p>I am a paragraph in an HTML string.</p>`
+            }
+        };
+
+        window.ElementSdk.client.configure({
+            tenant: "5b328aba89ed0900015acbcc"
+        });
+
+        var utils = {
+            client: window.ElementSdk.client,
+            seo: window.ElementSdk.seo
+        };
+
+        var ElementPropTypes = window.ElementSdk.ElementPropTypes;
+        var Components = window.ElementSdk.Components;
+
+        var blockOutput = volBlockElementDemoBlock.factory(
+            { React, ElementPropTypes, Components },
+            utils,
+            { StyleSheet: aphrodite.StyleSheet, css: aphrodite.css },
+            {
+                color: blockConfig.color,
+                globalComponents: blockConfig.globalComponents,
+                typography: blockConfig.typography
+            },
+            { ...blockConfig.props }
+        );
+
+        volBlockElementDemoBlock
+            .getDataProps(utils, blockConfig.props)
+            .then(dataProps => {
+                ReactDOM.render(
+                    blockOutput.block({
+                        ...blockConfig.props,
+                        data: dataProps
+                    }),
+                    document.getElementById("root")
+                );
+            });
+    </script>
+</html>
