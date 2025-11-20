@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Collection of blocks to be used in Project Zero organized by Category",
   "main": " ",
+  "type": "module",
   "scripts": {
     "lint": "eslint .",
     "test": "jest \"$INIT_CWD\"",
