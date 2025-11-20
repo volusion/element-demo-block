@@ -3,6 +3,7 @@ import babelParser from '@babel/eslint-parser';
 import react from 'eslint-plugin-react';
 import prettier from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
 
 export default [
     js.configs.recommended,
@@ -23,24 +24,10 @@ export default [
             ecmaVersion: 2018,
             sourceType: 'module',
             globals: {
-                // Browser globals
-                window: 'readonly',
-                document: 'readonly',
-                navigator: 'readonly',
-                console: 'readonly',
-                // Node globals
-                process: 'readonly',
-                __dirname: 'readonly',
-                __filename: 'readonly',
-                module: 'readonly',
-                require: 'readonly',
-                exports: 'writable',
-                global: 'readonly',
-                // ES6+ globals
-                Promise: 'readonly',
-                Set: 'readonly',
-                Map: 'readonly',
-                Symbol: 'readonly'
+                ...globals.browser,
+                ...globals.node,
+                ...globals.es2015,
+                ...globals.jest
             }
         },
         plugins: {
@@ -55,10 +42,11 @@ export default [
         rules: {
             'no-const-assign': 'error',
             'no-var': 'error',
-            'semi': 'error',
+            semi: 'error',
             'prefer-const': 'error',
             'react/no-unused-prop-types': 'off',
             'react/prop-types': 'off',
+            'react/react-in-jsx-scope': 'off',
             'prettier/prettier': [
                 'error',
                 {
