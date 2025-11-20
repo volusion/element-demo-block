@@ -1,10 +1,15 @@
 {
-    "parser": "babel-eslint", 
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "requireConfigFile": false,
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
+        }
+    },
     "extends": [
         "eslint:recommended",
         "standard-react",
-        "prettier",
-        "prettier/react"
+        "prettier"
     ],
     "env": {
         "browser": true,

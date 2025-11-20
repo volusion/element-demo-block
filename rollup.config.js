@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import uglify from 'rollup-plugin-uglify';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from '@rollup/plugin-terser';
 
 function getBlockName() {
     const data = fs.readFileSync(
@@ -28,15 +28,15 @@ function distBuild(options) {
         plugins: [
             babel({
                 babelrc: false,
-                presets: [['env', { modules: false }], 'stage-1', 'react'],
-                externalHelpers: true,
+                presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+                babelHelpers: 'bundled',
                 exclude: ['node_modules/**']
             }),
             resolve({
                 browser: true
             }),
             commonjs(),
-            options.minify && uglify()
+            options.minify && terser()
         ]
     };
 }
