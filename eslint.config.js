@@ -6,6 +6,14 @@ import prettierConfig from 'eslint-config-prettier';
 import globals from 'globals';
 
 export default [
+    {
+        ignores: [
+            '**/node_modules/',
+            '**/dist/',
+            '**/local/',
+            '**/__snapshots__/'
+        ]
+    },
     js.configs.recommended,
     prettierConfig,
     {
