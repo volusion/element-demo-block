@@ -1,7 +1,9 @@
-expect.extend({
+import { expect as jestExpect } from '@jest/globals';
+
+jestExpect.extend({
     toHaveContainerClassses(received) {
         const containerClasses = ['w-100', 'mw9', 'center'];
-        const allClassesPresent = containerClasses.every(className =>
+        const allClassesPresent = containerClasses.every((className) =>
             received.hasClass(className)
         );
         if (allClassesPresent) {
@@ -19,4 +21,4 @@ expect.extend({
         }
     }
 });
-export { expect };
+export { jestExpect as expect };

@@ -28,7 +28,10 @@ function distBuild(options) {
         plugins: [
             babel({
                 babelrc: false,
-                presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
+                presets: [
+                    ['@babel/preset-env', { modules: false }],
+                    '@babel/preset-react'
+                ],
                 babelHelpers: 'bundled',
                 exclude: ['node_modules/**']
             }),

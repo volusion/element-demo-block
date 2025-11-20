@@ -1,5 +1,5 @@
 function createFactory(blockFactory, styles, configSchema) {
-    return function(
+    return function (
         { React, ElementPropTypes, Components },
         utils,
         { StyleSheet, css },
@@ -20,6 +20,7 @@ function createFactory(blockFactory, styles, configSchema) {
             {}
         );
 
+        // eslint-disable-next-line no-unused-vars
         const Block = blockFactory(React, generatedComponents);
 
         const block = class extends React.Component {
