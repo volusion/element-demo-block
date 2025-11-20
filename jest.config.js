@@ -6,10 +6,12 @@ module.exports = {
         {
             runner: 'jest-runner-eslint',
             displayName: 'lint',
-            testMatch: ['<rootDir>/**/*.js']
+            testMatch: ['<rootDir>/**/*.js'],
+            testPathIgnorePatterns: ['/node_modules/', '/dist/', '/local/']
         },
         {
             displayName: 'test',
+            testEnvironment: 'jsdom',
             snapshotSerializers: [
                 'enzyme-to-json/serializer',
                 'jest-aphrodite-react'
