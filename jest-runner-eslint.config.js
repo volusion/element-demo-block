@@ -1,8 +1,10 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+const __dirname = import.meta.dirname;
+
+export default {
     cliOptions: {
-        config: path.join(__dirname, './.eslintrc.json'),
+        config: path.join(__dirname, './eslint.config.js'),
         fix: true
     }
 };

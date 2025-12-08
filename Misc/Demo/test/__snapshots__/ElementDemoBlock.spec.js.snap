@@ -33,7 +33,7 @@ exports[`The ElementDemoBlock block should match the shallow snapshot 1`] = `
   </div>
   <div
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>I am a paragraph in an HTML string.</p>",
       }
     }

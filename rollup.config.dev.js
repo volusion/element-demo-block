@@ -1,9 +1,9 @@
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import getPort from 'get-port';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 
-import baseConfig from './rollup.config';
+import baseConfig from './rollup.config.js';
 
 async function extendConfig(config) {
     const devConfig = {
@@ -22,7 +22,8 @@ async function extendConfig(config) {
                 port: await getPort()
             }),
             replace({
-                'process.env.NODE_ENV': JSON.stringify('production')
+                'process.env.NODE_ENV': JSON.stringify('production'),
+                preventAssignment: true
             })
         ]
     };

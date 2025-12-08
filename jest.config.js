@@ -1,15 +1,19 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = {
+const __dirname = import.meta.dirname;
+
+export default {
     verbose: true,
     projects: [
         {
             runner: 'jest-runner-eslint',
             displayName: 'lint',
-            testMatch: ['<rootDir>/**/*.js']
+            testMatch: ['<rootDir>/**/*.js'],
+            testPathIgnorePatterns: ['/node_modules/', '/dist/', '/local/']
         },
         {
             displayName: 'test',
+            testEnvironment: 'jsdom',
             snapshotSerializers: [
                 'enzyme-to-json/serializer',
                 'jest-aphrodite-react'

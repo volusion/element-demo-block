@@ -17,11 +17,12 @@ function enzymeBlock(factory, blockConfig = {}, creationMethod = shallow) {
     const Button = () => <div>Mock Button</div>;
     const LinkButton = () => <div>Mock Button</div>;
     const mockComponents = { Button, LinkButton };
+    // eslint-disable-next-line no-unused-vars
     const ReactBlock = factory(React, mockComponents);
     function processCss() {
         const arrayOfArguments = [...arguments];
         return arrayOfArguments
-            .map(arg => {
+            .map((arg) => {
                 if (arg === undefined) return 'NO_MOCK_CLASS_PROVIDED';
                 if (typeof arg === 'string') return arg;
                 return css(arg);
@@ -53,6 +54,7 @@ function createFactoryEnzymeBlock(
     const Components = { Button, LinkButton };
     const utils = {};
     const globalConfig = { ...mockGlobalProps };
+    // eslint-disable-next-line no-unused-vars
     const ReactBlock = factory(
         { React, ElementPropTypes, Components },
         utils,

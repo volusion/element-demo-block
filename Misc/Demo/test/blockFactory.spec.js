@@ -9,9 +9,7 @@ describe('The ElementDemoBlock when rendered with createFactory', () => {
         props = { ...defaultConfig };
     });
     it('should match the shallow block snapshot', () => {
-        const block = createFactoryEnzymeBlock(factory, props)
-            .dive()
-            .dive();
+        const block = createFactoryEnzymeBlock(factory, props).dive().dive();
         expect(block).toMatchSnapshot();
     });
 });

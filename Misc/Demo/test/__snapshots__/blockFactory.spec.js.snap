@@ -37,7 +37,7 @@ exports[`The ElementDemoBlock when rendered with createFactory should match the 
   </div>
   <div
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "<p>I am a paragraph in an HTML string.</p>",
       }
     }

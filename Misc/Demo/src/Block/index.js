@@ -3,6 +3,7 @@ import { createMarkup } from '../../../../utils/createMarkup';
 import { OptionDetailsFactory } from './components/OptionDetails';
 
 function ElementDemoBlockFactory(React) {
+    // eslint-disable-next-line no-unused-vars
     const OptionDetails = OptionDetailsFactory(React);
     ElementDemoBlock.defaultProps = defaultConfig;
     function ElementDemoBlock(props) {
